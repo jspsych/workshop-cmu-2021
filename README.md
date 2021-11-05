@@ -12,5 +12,5 @@ The [Google Slides document](https://docs.google.com/presentation/d/1gardFUHlojm
 
 ## Demos
 
-* A really simple [feature search task](https://jspsych.github.io/workshop-cmu-2021/demo_2/feature-search-jspsych.html)
-* A really simple [conjunction search task](https://jspsych.github.io/workshop-cmu-2021/conjunction-search-jspsych.html)
+* A really simple [feature search task](https://jspsych.github.io/workshop-cmu-2021/demo_2/feature-search-jspsych.html). [(Source)](https://github.com/jspsych/workshop-cmu-2021/blob/main/demo_2/feature-search-jspsych.html)
+* A really simple [conjunction search task](https://jspsych.github.io/workshop-cmu-2021/conjunction-search-jspsych.html). [(Source)](https://github.com/jspsych/workshop-cmu-2021/blob/main/demo_2/conjunction-search-jspsych.html)
