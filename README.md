@@ -1,6 +1,6 @@
 # jsPsych design principles
 
-These are materials for a 25 minutes presentation on jsPsych covering
+These are materials for a 25 minute presentation on jsPsych covering
 
 1. The problem(s) jsPsych is trying to solve
 2. The strategies and design principles we use
