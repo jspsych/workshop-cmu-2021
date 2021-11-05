@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://unpkg.com/jspsych@7.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-visual-search-circle@1.0.0"></script>
+  <link rel="stylesheet" href="https://unpkg.com/jspsych@7.0.0/css/jspsych.css">
+</head>
+<body>
+</body>
+<script>
+  var jsPsych = initJsPsych();
+
+  var instructions = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `<p>Press the X key if there is a red X</p>
+      <p>Press the N key if there is no red X</p>
+      <p>Press the spacebar to begin.</p>`,
+    choices: [' ']
+  }
+
+  var visual_search = {
+    type: jsPsychVisualSearchCircle,
+    stimuli: function(){
+      return jsPsych.randomization.shuffle(jsPsych.timelineVariable('stimuli'))
+    },
+    target_present: jsPsych.timelineVariable('target_present'),
+    fixation_image: 'img/fixation.gif',
+    target_present_key: 'x',
+    target_absent_key: 'n',
+    data: {
+      set_size: jsPsych.timelineVariable('set_size')
+    }    
+  }
+
+  var visual_search_timeline = {
+    timeline: [visual_search],
+    timeline_variables: [
+      {stimuli: ['img/redX.png', 'img/redO.png', 'img/blackX.png', 'img/blackX.png'], target_present: true, set_size: 4},
+      {stimuli: ['img/redO.png', 'img/redO.png', 'img/blackX.png', 'img/blackX.png'], target_present: false, set_size: 4},
+      {stimuli: ['img/redX.png', 'img/redO.png', 'img/redO.png', 'img/redO.png', 'img/blackX.png', 'img/blackX.png', 'img/blackX.png','img/blackX.png'], target_present: true, set_size: 8},
+      {stimuli: ['img/redO.png', 'img/redO.png', 'img/redO.png', 'img/redO.png', 'img/blackX.png', 'img/blackX.png', 'img/blackX.png','img/blackX.png'], target_present: false, set_size: 8},
+    ],
+    sample: {
+      type: 'fixed-repetitions',
+      size: 3
+    }
+  }
+
+  var done = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: function(){
+      return `
+        <p>Average RT for set size 4: ${Math.round(jsPsych.data.get().filter({set_size:4, target_present:true, correct:true}).select('rt').mean())}</p>
+        <p>Average RT for set size 8: ${Math.round(jsPsych.data.get().filter({set_size:8, target_present:true, correct:true}).select('rt').mean())}</p>`
+    },
+    choices: "NO_KEYS"
+  }
+
+  jsPsych.run([instructions, visual_search_timeline, done])
+
+</script>

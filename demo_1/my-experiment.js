@@ -8,14 +8,21 @@ window.onload = () => {
     document.removeEventListener('keydown', show_instructions);
 
     document.querySelector('#experiment').innerHTML = `
-      <p>Press the W key if the letters form a valid English word.</p>
-      <p>Press the N key if the letters do not form a valid English word.</p>
+      <p>Press the X key if there is a red X</p>
+      <p>Press the N key if there is no red X</p>
       <p>Press the spacebar to begin.</p>`
 
     document.addEventListener('keydown', (e) => {
       if(e.key == ' ') { begin(); }
     });
   }
+
+  function begin(){
+    document.querySelector('#experiment').innerHTML = '';
+  }
 }
+
+
+
 
 
