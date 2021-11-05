@@ -9,3 +9,8 @@ These are materials for a 25 minutes presentation on jsPsych covering
 ## Workshop Slides
 
 The [Google Slides document](https://docs.google.com/presentation/d/1gardFUHlojmU073MNZCESte3WGiXYJQN9D-V382c4Mw/edit?usp=sharing) is available to view.
+
+## Demos
+
+* A really simple [feature search task](https://jspsych.github.io/workshop-cmu-2021/demo_2/feature-search-jspsych.html)
+* A really simple [conjunction search task](https://jspsych.github.io/workshop-cmu-2021/conjunction-search-jspsych.html)
